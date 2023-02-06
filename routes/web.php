@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ProductCOntroller;
 
 
 Route::get('/',[HomeController::class,'dashboard'])->name('/');
@@ -11,3 +12,7 @@ Route::get('/student-create',[StudentController::class,'create'])->name('student
 Route::post('/student-store',[StudentController::class,'store'])->name('student.store');
 Route::get('/student-show/{id}',[StudentController::class,'show'])->name('student.show');
 Route::get('/download-pdf/{id}',[StudentController::class,'downloadPdf'])->name('download.pdf');
+
+//product
+Route::get('/products',[ProductCOntroller::class,'index'])->name('product.index');
+Route::get('/products-show/{id}',[ProductCOntroller::class,'show'])->name('product.show');
