@@ -45,8 +45,6 @@ class StudentController extends Controller
         $student = DB::table('students')->where('id',$id)->first();
         $pdf = PDF::loadView('Home.student.pdf',compact('student'));
         return $pdf->download('my.pdf');
-
-        // return view('Home.student.pdf',compact('student'));
     }
 
 }
