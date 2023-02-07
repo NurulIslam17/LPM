@@ -37,11 +37,11 @@
                                         <span class="badge bg-success">Active</span>
 
                                         @else
-                                        <span class="badge bg-warning">Active</span>
+                                        <span class="badge bg-warning">Inactive</span>
                                         @endif
                                     </td>
                                     <td scope="col">
-                                        <a href="{{ route('product.show',['id'=> $product->id ])}}" class="btn btn-sm btn-success rounded-0">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-success rounded-0">Edit</a>
                                         <a href="{{ route('product.show',['id'=> $product->id ])}}" class="btn btn-sm btn-info rounded-0">Show</a>
                                     </td>
                                 </tr>

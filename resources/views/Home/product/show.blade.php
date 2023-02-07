@@ -5,7 +5,7 @@
 
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3> <i class="fa fa-product"></i>Product</h3>
+                    <h3> <i class="fa fa-product"></i>Product Details</h3>
                     <a href="{{ route('product.index')}}" class="btn btn-sm btn-success pt-2">Manage</a>
                 </div>
             </div>
@@ -17,20 +17,15 @@
                         <p><strong>Productc Name : </strong> {{ $products->name }}</p>
                         <p><strong>Productc Price : </strong> {{ $products->price }}</p>
                         <p><strong>Productc Status : </strong> {{ $products->status }}</p>
-                    </div>
-                </div>
+                        <p class="text-center">{!! DNS1D::getBarcodeHTML('4445645656', 'I25+')!!}</p>
+                       <p class="text-center">{{ $products->code.'|'.$products->price.'|'.$products->status}}</p>
 
-
-                <div class="col-md-3">
-                    <div class="card card-body shadow">
-                        <h5>Product Bar Code</h5>
-                        <p class="text-center">{!! DNS1D::getBarcodeHTML('4445645656', 'I25') !!}</p>
-                        <p><span>{{ $products->code.'|'.$products->price.'|'.$products->status}}</span></p>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="card card-body shadow">
+                        <h6 class="py-0 my-0">QR CODE</h6>
                         <p>{!! DNS2D::getBarcodeHTML('4445645656', 'QRCODE') !!}</p>
                     </div>
                 </div>
