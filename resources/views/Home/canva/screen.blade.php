@@ -2,8 +2,9 @@
 @section('body')
     <div class="row mt-5">
         <div class="col-md-8 mx-auto">
-            <div class="card card-body " id="screen_shot">
-                <h3>Screenshot</h3>
+            <div class="card card-body shadow" id="screen_shot">
+                <h3 class="text-center">Screenshot</h3>
+                <hr />
 
                 <div class="row">
                     <div class="col-md-6">
@@ -12,8 +13,8 @@
                             repellendus dolore vitae? Dolorum, beatae!</p>
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset('upload/student/1675617540.jpg') }}" style="height:200px;width:100%;" alt=""
-                            srcset="">
+                        <img src="{{ asset('upload/student/1675617540.jpg') }}" style="height:200px;width:100%;"
+                            alt="" srcset="">
                     </div>
                 </div>
 
@@ -26,38 +27,26 @@
                     quasi, voluptas mollitia voluptatibus itaque. Atque impedit veniam praesentium non repudiandae alias,
                     architecto ex dolor ipsa?</p>
             </div>
-            <button class="btn btn-sm btn-success" id="capture">Take Screenshot</button>
+            <button class="btn btn-sm btn-secondary mt-2 rounded-0" id="capture"> <i class="fa fa-download pe-1"></i> Take
+                Screenshot</button>
         </div>
         <div id="editor"></div>
     </div>
 @endsection
-@push('js')
-    <script>
-        // check cdn in master file
 
+
+@push('js')
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script>
         $("#capture").click(function() {
             alert("Take Screenshot")
             html2canvas(document.querySelector('.card'), {
                 onrendered: function(canvas) {
                     // document.body.appendChild(canvas);
-                    return Canvas2Image.saveAsPNG(canvas);
+                    return Canvas2Image.saveAsImage(canvas);
                 }
             });
         });
-
-
-        //  Js PDF
-
-        // var doc = new jsPDF();
-        // var specialElementHandlers = {
-        //     '#editor': function(element, renderer) {
-        //         return true;
-        //     }
-        // };
-        // $('#capture').click(function() {
-        //     doc.fromHTML($('#screen_shot').html());
-        //     doc.save('sample-file.pdf');
-        // });
-
     </script>
 @endpush

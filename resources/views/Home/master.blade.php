@@ -40,10 +40,10 @@
 
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2 rounded-0" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-sm btn-outline-success rounded-0" type="submit">Search</button>
                 </form>
-                <img src="" alt="" class="m-2 rounded-circle" style="height:30px; width:30px"
+                <img src="" alt="" class="m-2 rounded-circle" style="height:2ch; width:20px"
                     srcset="">
             </div>
         </div>
@@ -51,17 +51,13 @@
 
     <div class="container-fluid">
         <div class="row">
-
             @include('Home.partial.sidebar')
-
             <div class="col-md-10">
-
                 <div class="row">
                     <div class="col-md-12">
                         @yield('body')
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -70,18 +66,6 @@
     {{-- Jquery CDN --}}
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-
-    {{-- canva --}}
-    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-
-    {{-- jsPDF --}}
-
-    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script> --}}
-
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-      ></script> --}}
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
