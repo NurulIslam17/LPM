@@ -21,5 +21,11 @@
                     class="fa fa-cart-shopping pe-3"></i>Product (QR Code)</a>
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-md-12 text">
+            <a href=" {{ route('canva.screenshot') }} " style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-cart-shopping pe-3"></i>View Screenshot</a>
+        </div>
+    </div>
 
 </div>

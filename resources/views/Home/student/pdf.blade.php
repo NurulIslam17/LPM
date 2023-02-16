@@ -2,41 +2,195 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        pdf
+    </title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        p {
+            text-align: justify;
+        }
+
+        .main {
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            padding: 1px;
+        }
+
+        .basic_info {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .img,.info1,.info2
+        {
+            width: 33%;
+            height:250px;
+        }
+        .image{
+            width: 100%;
+            height: 100%;
+        }
+
+        /* img,.info1, .info2
+    {
+      padding: 10px;
+    } */
 
 
-    <title>Laravel Pkg</title>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .tr_head {
+            background-color: rgb(120, 121, 120);
+        }
+    </style>
 </head>
 
 <body onload="window.print()">
-    <div class="row">
-        <div class="container p-5">
-            <div class="row mt-3">
-                <div class="col-md-10 mx-auto">
 
-                    <div class="row">
+    <div class="main">
 
-                        <div class="col-md-4">
-                            <img src="{{ asset('upload/student/' . $student->image) }}"
-                                style="height:300px;width:300px;" alt="" srcset="">
-                        </div>
+        <h1>ABC's Profile</h1>
+        <div class="basic_info">
+            <div class="img">
+                <img class="image" src="{{ asset('upload/student/'.$student->image)}}" alt="" srcset="">
+            </div>
+            <div class="info1">
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
 
-                        <div class="col-md-4 pt-5">
-                            <p><strong>Name : </strong>{{ $student->name }}</p>
-                            <p><strong>Email : </strong>{{ $student->email }}</p>
-                            <p><strong>Department : </strong>{{ $student->depertment }}</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="info2">
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
+                <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>
             </div>
         </div>
+
+        <div class="table">
+            <h1>Address and Contact</h1>
+            <table>
+                <tr class="tr_head">
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                    <th>Country</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <div class="table">
+            <h1>Nominee Information</h1>
+            <table>
+                <tr class="tr_head">
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                    <th>Country</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+
+                </tr>
+
+            </table>
+
+
+            <div class="table">
+                <h1>Family Information</h1>
+                <table>
+                    <tr class="tr_head">
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                        <th>Country</th>
+
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+        </div>
+
     </div>
+
 </body>
 
 </html>

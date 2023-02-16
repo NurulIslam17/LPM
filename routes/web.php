@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ProductCOntroller;
+use App\Http\Controllers\ScreenshotController;
 
 
 Route::get('/',[HomeController::class,'dashboard'])->name('/');
@@ -16,3 +17,5 @@ Route::get('/download-pdf/{id}',[StudentController::class,'downloadPdf'])->name(
 //product
 Route::get('/products',[ProductCOntroller::class,'index'])->name('product.index');
 Route::get('/products-show/{id}',[ProductCOntroller::class,'show'])->name('product.show');
+// canva.screenshot
+Route::get('/screen_shot',[ScreenshotController::class,'screenshoot'])->name('canva.screenshot');
