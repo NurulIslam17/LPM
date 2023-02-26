@@ -1,4 +1,5 @@
 @extends('Home.master')
+
 @section('body')
     <div class="row mt-5">
         <div class="col-md-8 mx-auto">
@@ -10,7 +11,7 @@
                     <div class="col-md-6">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum soluta recusandae obcaecati
                             tenetur similique minus ea sequi voluptatibus perferendis qui rerum illo, non sunt tempore
-                            repellendus dolore vitae? Dolorum, beatae!</p>
+                            repellendus dolore vitae? Dolorum, beatae.</p>
                     </div>
                     <div class="col-md-6">
                         <img src="{{ asset('upload/student/1675617540.jpg') }}" style="height:200px;width:100%;"
@@ -30,10 +31,8 @@
             <button class="btn btn-sm btn-secondary mt-2 rounded-0" id="capture"> <i class="fa fa-download pe-1"></i> Take
                 Screenshot</button>
         </div>
-        <div id="editor"></div>
     </div>
 @endsection
-
 
 @push('js')
     <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
@@ -41,7 +40,7 @@
     <script>
         $("#capture").click(function() {
             alert("Take Screenshot")
-            html2canvas(document.querySelector('.card'), {
+            html2canvas(document.querySelector('#screen_shot'), {
                 onrendered: function(canvas) {
                     // document.body.appendChild(canvas);
                     return Canvas2Image.saveAsImage(canvas);

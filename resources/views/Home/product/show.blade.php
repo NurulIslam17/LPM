@@ -18,7 +18,7 @@
                         <p><strong>Productc Price : </strong> {{ $products->price }}</p>
                         <p><strong>Productc Status : </strong> {{ $products->status }}</p>
                         <p class="text-center">{!! DNS1D::getBarcodeHTML('4445645656', 'I25+')!!}</p>
-                       <p class="text-center">{{ $products->code.'|'.$products->price.'|'.$products->status}}</p>
+                       <p class="text-center">{{ $products->code.' '.$products->price.' '.$products->status}}</p>
 
                     </div>
                 </div>

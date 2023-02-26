@@ -26,12 +26,15 @@
             justify-content: space-between;
             gap: 20px;
         }
-        .img,.info1,.info2
-        {
+
+        .img,
+        .info1,
+        .info2 {
             width: 33%;
-            height:250px;
+            height: 250px;
         }
-        .image{
+
+        .image {
             width: 100%;
             height: 100%;
         }
@@ -72,7 +75,7 @@
         <h1>ABC's Profile</h1>
         <div class="basic_info">
             <div class="img">
-                <img class="image" src="{{ asset('upload/student/'.$student->image)}}" alt="" srcset="">
+                <img class="image" src="{{ asset('upload/student/' . $student->image) }}" alt="" srcset="">
             </div>
             <div class="info1">
                 <p><strong>Name : </strong> ABC Lorem, ipsum dolor.</p>

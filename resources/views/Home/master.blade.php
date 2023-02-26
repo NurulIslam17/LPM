@@ -14,7 +14,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg  nav-fixed navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg  nav-fixed navbar-dark bg-dark mb-5" style="position:fixed;width:100%">
         <div class="container">
             <a class="navbar-brand" href="{{ route('/') }}">PKG</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -52,9 +52,9 @@
     <div class="container-fluid">
         <div class="row">
             @include('Home.partial.sidebar')
-            <div class="col-md-10">
+            <div class="col-md-10" style="margin-left:225px;">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-3">
                         @yield('body')
                     </div>
                 </div>

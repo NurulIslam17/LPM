@@ -27,9 +27,6 @@
               <p><strong>Department : </strong>{{ $student->depertment}}</p>
             </div>
           </div>
-
-
-
          </div>
         </div>
       </div>
