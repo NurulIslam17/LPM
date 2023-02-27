@@ -44,5 +44,16 @@
                     class="fa fa-industry pe-3"></i>Company</a>
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-md-12 text">
+            <p>Multiple Image</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text">
+            <a href="{{ route('manage_product_index')}}" style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-industry pe-3"></i>Manage Product</a>
+        </div>
+    </div>
 
 </div>

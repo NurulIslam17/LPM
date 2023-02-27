@@ -6,7 +6,7 @@
 
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3>All Members of {{ $companyInfo->name}}</h3>
+                    <h3>All Members of {{ $companyInfo->name }}</h3>
                     {{-- <p>{{$companyInfo->members}}</p> --}}
                 </div>
             </div>
@@ -39,8 +39,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="""
-                                            class="btn btn-sm btn-info rounded-0">Show</a>
+                                        <a href=""" class="btn btn-sm btn-info rounded-0">Show</a>
                                     </td>
                                 </tr>
                             @endforeach

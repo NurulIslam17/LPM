@@ -11,6 +11,6 @@ class Companies extends Model
     use HasFactory;
     public function members()
     {
-        return $this->hasMany(Member::class, 'company_id', 'id');
+        return $this->hasMany(Member::class, 'company_id');
     }
 }
