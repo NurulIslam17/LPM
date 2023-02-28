@@ -7,7 +7,7 @@
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
                     <h3>Manage Multiple Image</h3>
-                    <a href="{{ route('create_multiImage')}}" class="btn btn-sm btn-success pt-2">Create</a>
+                    <a href="{{ route('create_multiImage') }}" class="btn btn-sm btn-success pt-2">Create</a>
                 </div>
             </div>
 
@@ -16,15 +16,35 @@
                     <table class="table table-bordered table-striped mt-5">
                         <thead>
                             <tr class="bg-info">
-                                <th scope="col">#</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Address</th>
+                                <th scope="col">SL</th>
+                                <th scope="col">Name</th>
                                 <th scope="col">Code</th>
+                                <th scope="col">Price</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($product as $singleProduct)
+                            <tr class="">
+                                <td scope="col">{{ $loop->iteration}}</td>
+                                <td scope="col">{{ $singleProduct->name}}</td>
+                                <td scope="col">{{ $singleProduct->code}}</td>
+                                <td scope="col">{{ $singleProduct->price}} $</td>
+                                <td scope="col">
+                                    @if ($singleProduct->status == 1)
+                                        <span class="badge bg-success"> Active</span>
+                                    @else
+                                    <span class="badge bg-warning"> Inctive</span>
+                                    @endif
+                                </td>
+                                <td scope="col" class="d-flex justify-content-center">
+                                    <a href="{{ route('show_product',['id'=>$singleProduct->id]) }}" class="btn btn-sm btn-success rounded-0 m-1">Show</a>
+                                    <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
+                                </td>
+                            </tr>
+
+                            @endforeach
 
                         </tbody>
                     </table>

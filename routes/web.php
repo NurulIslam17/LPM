@@ -30,3 +30,4 @@ Route::get('/company_show/{id}', [ComppanyController::class, 'show'])->name('com
 Route::get('/manage_product_index', [ProductimgController::class, 'index'])->name('manage_product_index');
 Route::get('/create_multiImage', [ProductimgController::class, 'create'])->name('create_multiImage');
 Route::post('/store_multiImg', [ProductimgController::class, 'store'])->name('store_multiImg');
+Route::get('/show_product/{id}', [ProductimgController::class, 'show'])->name('show_product');

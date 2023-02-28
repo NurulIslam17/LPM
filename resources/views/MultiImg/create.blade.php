@@ -6,12 +6,14 @@
             <div class="row mt-3">
                 <div class="col-md-10 mx-auto">
                     <div class="card card-body shadow p-4">
-                        <h3 class="text-center">Product with Multi-image</h3>
-                        <hr/>
+                        <span> <a href="{{ route('manage_product_index') }}" class="btn btn-sm btn-info"> <i
+                                    class="fa fa-list pe-3"></i></a></span>
+                        <h4 class="text-center">Product With Multi Image</h4>
+                        <p>{{ Session::get('msg') }}</p>
+                        <hr />
 
                         <form action="{{ route('store_multiImg') }}" method="post" enctype="multipart/form-data">
                             @csrf
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
@@ -39,14 +41,14 @@
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="mb-3">
-                                                    <label for="img_desc" class="form-label">Desc</label>
-                                                    <input type="text" name="img_desc[]" placeholder="Enter desc"
+                                                    <label for="img_desc" class="form-label">Desc 1</label>
+                                                    <input type="text" name="img_desc[]" placeholder="Desc image 1"
                                                         class="form-control rounded-0" id="img_desc">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-3">
-                                                    <label for="price" class="form-label">Image</label>
+                                                    <label for="price" class="form-label">Image 1</label>
                                                     <input type="file" name="product_images[]"
                                                         class="form-control rounded-0" id="image">
                                                 </div>
@@ -81,18 +83,18 @@
             if (i < max_fileds) {
                 let html =
 
-                $('#daynami_row').append(`<div id="row` + i + `">
+                    $('#daynami_row').append(`<div id="row` + i + `">
                     <div class="row">
                                     <div class="col-md-5">
                                         <div class="mb-3">
-                                            <label for="img_desc" class="form-label">Desc</label>
-                                            <input type="text" name="img_desc[]" placeholder="Enter desc"
+                                            <label for="img_desc" class="form-label">Desc ` + (i + 2) + `</label>
+                                            <input type="text" name="img_desc[]" placeholder="Desc image ` + (i + 2) + `"
                                                 class="form-control rounded-0" id="img_desc">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="price" class="form-label">Image</label>
+                                            <label for="price" class="form-label">Image ` + (i + 2) + `</label>
                                             <input type="file" name="product_images[]"
                                                 class="form-control rounded-0" id="image">
                                         </div>
