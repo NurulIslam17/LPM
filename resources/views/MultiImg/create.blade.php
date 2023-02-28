@@ -6,6 +6,8 @@
             <div class="row mt-3">
                 <div class="col-md-10 mx-auto">
                     <div class="card card-body shadow p-4">
+                        <h3 class="text-center">Product with Multi-image</h3>
+                        <hr/>
 
                         <form action="{{ route('store_multiImg') }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -77,6 +79,7 @@
         $('#add_more').click(function(e) {
             e.preventDefault();
             if (i < max_fileds) {
+                let html =
 
                 $('#daynami_row').append(`<div id="row` + i + `">
                     <div class="row">
