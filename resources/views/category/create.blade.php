@@ -17,6 +17,7 @@
                         <form action="{{ route('store_mejor')}}" method="post">
                             @csrf
                             <p class="text-success">{{ Session::get('Msg') }}</p>
+                            <p class="text-danger">{{ Session::get('err') }}</p>
 
                             <div class="form-group mb-2">
                                 <label for="department_id">Department</label>

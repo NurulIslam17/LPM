@@ -11,7 +11,9 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('category.index');
+        $allMejor = Category::orderBy('id','DESC')->get();
+        // return $allMejor;
+        return view('category.index',compact('allMejor'));
     }
     public function create()
     {
@@ -24,12 +26,16 @@ class CategoryController extends Controller
         try{
             // return $request;
             $mejor = new Category();
-            // return back()->with('Msg','Mejor Created for the department');
+            // return $mejor;
+            $mejor->department_id = $request->department_id;
+            $mejor->category = $request->category;
+            $mejor->save();
+            return back()->with('Msg','Mejor Created for the department');
 
         }catch(\Throwable $th)
         {
             Log::error($th->getMessage());
-            return back()->with('Msg','Insertion Failed');
+            return back()->with('err','Insertion Failed');
         }
     }
 }
