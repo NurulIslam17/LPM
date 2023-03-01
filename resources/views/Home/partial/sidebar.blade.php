@@ -32,27 +32,38 @@
                     class="fa fa-list pe-3"></i>Telescope</a>
         </div>
     </div>
-    <div class="row mt-2">
-        <div class="col-md-12 text">
-            <a href="#" style="text-decoration: none" class="text-light text-center"> <i
-                    class="fa fa-star pe-3"></i>Socialite</a>
-        </div>
-    </div>
+
     <div class="row mt-2">
         <div class="col-md-12 text">
             <a href="{{ route('company_index')}}" style="text-decoration: none" class="text-light text-center"> <i
-                    class="fa fa-industry pe-3"></i>Company</a>
+                    class="fa fa-industry pe-3"></i>Company(EORM)</a>
         </div>
     </div>
-    <div class="row mt-2">
+
+    <div class="row">
         <div class="col-md-12 text">
-            <p class="text-secondary">Multiple Image</p>
+            <a href="{{ route('manage_product_index')}}" style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-image pe-3"></i>Product( Multi-Img )</a>
+        </div>
+    </div>
+
+    <p class="text-light mt-3">Dependent  Dropdown</p>
+    <div class="row">
+        <div class="col-md-12 text">
+            <a href="{{ route('manage_department')}}" style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-image pe-3"></i>Department</a>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 text">
-            <a href="{{ route('manage_product_index')}}" style="text-decoration: none" class="text-light text-center"> <i
-                    class="fa fa-star pe-3"></i>Manage Product</a>
+            <a href="{{ route('manage_category')}}" style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-image pe-3"></i>Category</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text">
+            <a href="{{ route('manage_employee')}}" style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-image pe-3"></i>Employee</a>
         </div>
     </div>
 
