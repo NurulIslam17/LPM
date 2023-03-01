@@ -11,7 +11,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $allMejor = Category::orderBy('id','DESC')->get();
+        // $allMejor = Category::orderBy('id','DESC')->get();
+        $allMejor = Category::with('department')->orderBy('id','DESC')->get();
         // return $allMejor;
         return view('category.index',compact('allMejor'));
     }

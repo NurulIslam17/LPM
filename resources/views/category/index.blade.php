@@ -28,7 +28,7 @@
                             <tr class="">
                                 <td scope="col">{{ $loop->iteration}}</td>
                                 <td scope="col">{{ $mejor->category}}</td>
-                                <td scope="col">{{ $mejor->department_id}}</td>
+                                <td scope="col">{{ $mejor->department->department}}</td>
                                 <td scope="col">
                                     @if ($mejor->status == 1)
                                         <span class="badge text-dark" style="background: rgb(14, 238, 51)"> Active</span>

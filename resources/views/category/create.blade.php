@@ -7,7 +7,7 @@
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
                     <h3>Create Category</h3>
-                    <a href="{{ route('create_category') }}" class="btn btn-sm btn-success pt-2">Create</a>
+                    <a href="{{ route('manage_category') }}" class="btn btn-sm btn-success pt-2"><i class="fa fa-list"> </i> List</a>
                 </div>
             </div>
 
