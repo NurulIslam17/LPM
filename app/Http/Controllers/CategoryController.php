@@ -39,4 +39,12 @@ class CategoryController extends Controller
             return back()->with('err','Insertion Failed');
         }
     }
+
+    public function ajaxCall(Request $request)
+    {
+        $data['data'] = Category::where('department_id',$request->id)->where('status',1)->get(['id','category']);
+
+        return response()->json($data);
+        // return $request->id;
+    }
 }

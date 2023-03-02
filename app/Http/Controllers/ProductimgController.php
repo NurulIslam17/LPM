@@ -38,7 +38,7 @@ class ProductimgController extends Controller
                     'code' => $request->code,
                     'price' => $request->price,
                 ]);
-                dd($productId);
+                // dd($productId);
                 foreach ($request->file('product_images') as $key => $value) {
                     $file = $value;
                     $filename = 'IMG' . $key . time() . '.' . $file->getClientOriginalExtension();

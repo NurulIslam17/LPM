@@ -7,13 +7,13 @@
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
                     <h3>Manage Employee</h3>
-                    <a href="#" class="btn btn-sm btn-success pt-2">Create</a>
+                    <a href="{{ route('store_facalty') }}" class="btn btn-sm btn-success pt-2">Create</a>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-bordered table-striped mt-5">
+                    <table class="table table-bordered table-striped mt-5" id="data_table1">
                         <thead>
                             <tr class="" style="background: rgb(126, 116, 116)">
                                 <th scope="col">SL</th>
@@ -53,3 +53,9 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $('#data_table1').DataTable();
+    </script>
+@endpush

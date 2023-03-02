@@ -48,5 +48,9 @@ Route::get('/manage_category', [CategoryController::class, 'index'])->name('mana
 Route::get('/create_category', [CategoryController::class, 'create'])->name('create_category');
 Route::post('/store_mejor', [CategoryController::class, 'store'])->name('store_mejor');
 
+Route::post('/get_mejor_ajax', [CategoryController::class, 'ajaxCall']);
+
 //manage_employee
 Route::get('/manage_employee', [EmployeeController::class, 'index'])->name('manage_employee');
+Route::get('/store_facalty', [EmployeeController::class, 'create'])->name('store_facalty');
+Route::post('/store_facalty', [EmployeeController::class, 'store'])->name('store_facalty');
