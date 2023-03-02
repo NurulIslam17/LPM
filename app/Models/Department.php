@@ -9,8 +9,12 @@ use App\Models\Category;
 class Department extends Model
 {
     use HasFactory;
+    public function facalties()
+    {
+        return $this->hasOne(Facalty::class, 'department_id', 'id');
+    }
     public function category()
     {
-        return $this->hasMany(Category::class, 'department_id', 'id');
+        return $this->hasOne(Category::class, 'department_id', 'id');
     }
 }

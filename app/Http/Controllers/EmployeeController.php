@@ -6,13 +6,20 @@ use App\Models\Department;
 use App\Models\Facalty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 
 class EmployeeController extends Controller
 {
     public function index()
     {
-        $facalties = Facalty::orderBy('id', 'DESC')->get();
+        // $facalties = DB::table('facalties')
+        //     ->join('departments', 'departments.id', 'facalties.department_id')
+        //     ->join('categories', 'categories.id', 'facalties.category_id')
+        //     ->select('facalties.*', 'departments.department', 'categories.category')->get();
+
+        $facalties = Facalty::with('departments:id,department')->with('category:id,category')->orderBy('created_at', 'ASC')->get();
+        // return $facalties;
         return view('facalty.index', compact('facalties'));
     }
     public function create()

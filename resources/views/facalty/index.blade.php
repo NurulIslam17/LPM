@@ -6,7 +6,7 @@
 
             <div class="row  shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3>Manage Facalty</h3>
+                    <h3>Manage Faculty</h3>
                     <a href="{{ route('store_facalty') }}" class="btn btn-sm btn-success pt-2">Create</a>
                 </div>
             </div>
@@ -35,8 +35,8 @@
                                     <td scope="col">{{ $facalty->employee }}</td>
                                     <td scope="col">{{ $facalty->email }}</td>
                                     <td scope="col">{{ $facalty->phone }}</td>
-                                    <td scope="col">{{ $facalty->department_id }}</td>
-                                    <td scope="col">{{ $facalty->category_id }}</td>
+                                    <td scope="col">{{ $facalty->departments->department }}</td>
+                                    <td scope="col">{{ $facalty->category->category }}</td>
                                     <td scope="col">
                                         @if ($facalty->status == 1)
                                             <span class="badge text-dark" style="background: rgb(14, 238, 51)">

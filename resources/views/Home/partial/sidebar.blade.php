@@ -63,7 +63,7 @@
     <div class="row">
         <div class="col-md-12 text">
             <a href="{{ route('manage_employee') }}" style="text-decoration: none" class="text-light text-center"> <i
-                    class="fa fa-image pe-3"></i>Facalties</a>
+                    class="fa fa-image pe-3"></i>Faculties</a>
         </div>
     </div>
 

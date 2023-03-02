@@ -6,7 +6,7 @@
 
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3>Manage Facalties</h3>
+                    <h3>Manage Faculties</h3>
                     <a href="{{ route('manage_employee') }}" class="btn btn-sm btn-success pt-2"><i class="fa fa-list"></i>
                         List</a>
                 </div>
@@ -96,6 +96,7 @@
             var selectedDeptId = this.value;
             // alert(selectedDeptId);
             // $("#mejoAjx").html();
+            // $("#mejoAjx").clear();
             $.ajax({
                 url: "{{ url('/get_mejor_ajax') }} ",
                 type: "POST",
@@ -105,6 +106,7 @@
                 dataType: "json",
                 success: function(response) {
                     // console.log(response);
+                    $("#mejoAjx").html(`<option disabled selected>Select Mejor</option>`)
                     $.each(response.data, function(key, value) {
                         $("#mejoAjx").append(
                             `<option value=" ${value.id}"> ${value.category } </option>`);

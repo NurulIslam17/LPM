@@ -11,13 +11,12 @@ class Facalty extends Model
 {
     use HasFactory;
 
-    public function department()
+    public function departments()
     {
-        return $this->hasOne(Department::class, 'department_id');
+        return $this->belongsTo(Department::class, 'department_id');
     }
-
     public function category()
     {
-        return $this->hasOne(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
