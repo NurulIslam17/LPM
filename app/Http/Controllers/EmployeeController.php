@@ -12,7 +12,8 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        return view('facalty.index');
+        $facalties = Facalty::orderBy('id', 'DESC')->get();
+        return view('facalty.index', compact('facalties'));
     }
     public function create()
     {
@@ -23,7 +24,7 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->all());
+        // dd($request->all());
 
         try {
             $facalty = new Facalty();
@@ -36,15 +37,14 @@ class EmployeeController extends Controller
             $facalty->description    = $request->description;
 
             $file = $request->file('image');
-            $file_name = "Facalty_" . time() . $file->getClientOriginalExtension();
-            $file->move("/upload/facalties/", $file_name);
+            $file_name = "Facalty_" . time() . "." . $file->getClientOriginalExtension();
+            $file->move("upload/facalties/", $file_name);
             $facalty->image    = $file_name;
-            // $facalty->save();
-            return back()->with("Msg", "Record Inseted");
+            $facalty->save();
+            return redirect()->route('manage_employee');
         } catch (\Throwable $th) {
             Log::error($th->getMessage());
             return back()->with("Msg", "Record Inseted Failed");
         }
     }
-
 }

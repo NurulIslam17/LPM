@@ -6,7 +6,7 @@
 
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3>Manage Employee</h3>
+                    <h3>Manage Facalties</h3>
                     <a href="{{ route('manage_employee') }}" class="btn btn-sm btn-success pt-2"><i class="fa fa-list"></i>
                         List</a>
                 </div>
@@ -16,7 +16,6 @@
                 <div class="col-md-10 mx-auto">
                     <div class="card card-body shadow">
                         <h4>Create</h4>
-                        <p>{{ Session::get('Msg') }}</p>
                         <hr />
                         <form action="{{ route('store_facalty') }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -107,7 +106,8 @@
                 success: function(response) {
                     // console.log(response);
                     $.each(response.data, function(key, value) {
-                        $("#mejoAjx").append(`<option value=" ${value.id}"> ${value.category } </option>`);
+                        $("#mejoAjx").append(
+                            `<option value=" ${value.id}"> ${value.category } </option>`);
                     })
                 }
             });
