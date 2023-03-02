@@ -15,7 +15,7 @@
                 <div class="col-md-12">
                     <table class="table table-bordered table-striped mt-5" id="example">
                         <thead>
-                            <tr class="" style="background: rgb(126, 116, 116)">
+                            <tr class="" style="background: rgb(236, 224, 224)">
                                 <th scope="col">SL</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
@@ -48,9 +48,11 @@
                                     </td>
                                     <td scope="col">
                                         <img src="{{ asset('upload/facalties/' . $facalty->image) }}"
-                                            style="width: 80px;height:80px;" alt="" srcset="">
+                                            style="width: 50px;height:50px;" alt="" srcset="">
                                     </td>
-                                    <td scope="col">{{ $facalty->created_at->format('M,Y') }}</td>
+                                    <td scope="col">
+                                        {{ \Carbon\Carbon::parse($facalty->created_at)->diff(\Carbon\Carbon::now())->format('%y Years, %m Month') }}
+                                    </td>
                                     <td scope="col" class="d-flex justify-content-center">
                                         <a href="#" class="btn btn-sm btn-success rounded-0 m-1">Show</a>
                                         <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
