@@ -10,7 +10,8 @@ class DivisionController extends Controller
 {
     public function index()
     {
-        return view('divission.index');
+        $divissions = Division::orderby('id', 'DESC')->get();
+        return view('divission.index', compact('divissions'));
     }
     public function create()
     {

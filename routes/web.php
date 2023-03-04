@@ -12,6 +12,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\CityController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -57,6 +58,13 @@ Route::get('/store_facalty', [EmployeeController::class, 'create'])->name('store
 Route::post('/store_facalty', [EmployeeController::class, 'store'])->name('store_facalty');
 
 // Multi dependent Dropdown
+
+// Divission
 Route::get('/manage_division', [DivisionController::class, 'index'])->name('manage_division');
 Route::get('/create_divission', [DivisionController::class, 'create'])->name('create_divission');
 Route::post('/store_divission', [DivisionController::class, 'store'])->name('store_divission');
+
+// city
+Route::get('/manage_city', [CityController::class, 'index'])->name('manage_city');
+Route::get('/create_city', [CityController::class, 'create'])->name('create_city');
+Route::post('/store_city', [CityController::class, 'store'])->name('store_city');
