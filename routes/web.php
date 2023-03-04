@@ -58,3 +58,5 @@ Route::post('/store_facalty', [EmployeeController::class, 'store'])->name('store
 
 // Multi dependent Dropdown
 Route::get('/manage_division', [DivisionController::class, 'index'])->name('manage_division');
+Route::get('/create_divission', [DivisionController::class, 'create'])->name('create_divission');
+Route::post('/store_divission', [DivisionController::class, 'store'])->name('store_divission');
