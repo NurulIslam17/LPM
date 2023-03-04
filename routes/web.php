@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductimgController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DivisionController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -54,3 +55,6 @@ Route::post('/get_mejor_ajax', [CategoryController::class, 'ajaxCall']);
 Route::get('/manage_employee', [EmployeeController::class, 'index'])->name('manage_employee');
 Route::get('/store_facalty', [EmployeeController::class, 'create'])->name('store_facalty');
 Route::post('/store_facalty', [EmployeeController::class, 'store'])->name('store_facalty');
+
+// Multi dependent Dropdown
+Route::get('/manage_division', [DivisionController::class, 'index'])->name('manage_division');

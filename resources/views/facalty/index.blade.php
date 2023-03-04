@@ -15,6 +15,26 @@
                 <div class="col-md-12">
                     <table class="table table-bordered table-striped mt-5" id="example">
                         <thead>
+                            {{-- <tr class="border border-dark mt-5">
+                            <td scope="col" colspan="5">
+                                <select class="py-1 rounded-0" style="width: 100%" id="exampleFormControlSelect1">
+                                    <option disabled selected>Select Department</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </td>
+                            <td scope="col" colspan="5">
+                                <select class="py-1 rounded-0" style="width: 100%" id="exampleFormControlSelect1">
+                                    <option disabled selected>Select Mejor</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </td>
+                        </tr> --}}
                             <tr class="" style="background: rgb(236, 224, 224)">
                                 <th scope="col">SL</th>
                                 <th scope="col">Name</th>
@@ -51,7 +71,7 @@
                                             style="width: 50px;height:50px;" alt="" srcset="">
                                     </td>
                                     <td scope="col">
-                                        {{ \Carbon\Carbon::parse($facalty->created_at)->diff(\Carbon\Carbon::now())->format('%y Years, %m Month') }}
+                                        {{ \Carbon\Carbon::parse($facalty->created_at)->diff(\Carbon\Carbon::now())->format('%y Y, %m M, %d D') }}
                                     </td>
                                     <td scope="col" class="d-flex justify-content-center">
                                         <a href="#" class="btn btn-sm btn-success rounded-0 m-1">Show</a>

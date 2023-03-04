@@ -16,12 +16,13 @@
                 <div class="col-md-10 mx-auto">
                     <div class="card card-body shadow">
                         <h4>Create</h4>
+                        <p class="text-danger">{{ Session::get('Msg') }}</p>
                         <hr />
                         <form action="{{ route('store_facalty') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-9">
 
                                     <div class="row">
                                         <div class="col">
@@ -46,18 +47,18 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="description">Description</label>
-                                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                            <textarea class="form-control" style="height:100px" name="description" id="description" rows="3"></textarea>
                                         </div>
                                     </div>
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
 
                                     <div class="row">
                                         <label for="exampleFormControlSelect2">Department</label>
                                         <select class="form-select" name="department_id" id="department_id"
                                             aria-label="Default select example">
-                                            <option disabled selected>Select Department</option>
+                                            <option disabled selected>---- Select Department ----</option>
                                             @foreach ($department as $dept)
                                                 <option value="{{ $dept->id }}">{{ $dept->department }}</option>
                                             @endforeach
@@ -68,13 +69,12 @@
                                         <label for="exampleFormControlSelect2">Mejor</label>
                                         <select class="form-select" id="mejoAjx" name="category_id"
                                             aria-label="Default select example">
-                                            <option disabled selected>Select Mejor</option>
-
+                                            <option disabled selected>--------Select Mejor--------</option>
                                         </select>
                                     </div>
                                     <div class="row">
                                         <label for="image" class="form-label">Image</label>
-                                        <input type="file" name="image" class="form-control" id="image">
+                                        <input type="file" name="image" class="form-control dropify" id="image">
                                     </div>
 
                                 </div>
@@ -95,8 +95,6 @@
             e.preventDefault();
             var selectedDeptId = this.value;
             // alert(selectedDeptId);
-            // $("#mejoAjx").html();
-            // $("#mejoAjx").clear();
             $.ajax({
                 url: "{{ url('/get_mejor_ajax') }} ",
                 type: "POST",
@@ -106,7 +104,7 @@
                 dataType: "json",
                 success: function(response) {
                     // console.log(response);
-                    $("#mejoAjx").html(`<option disabled selected>Select Mejor</option>`)
+                    $("#mejoAjx").html(`<option disabled selected>---Select Mejor---</option>`)
                     $.each(response.data, function(key, value) {
                         $("#mejoAjx").append(
                             `<option value=" ${value.id}"> ${value.category } </option>`);

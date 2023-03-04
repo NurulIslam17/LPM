@@ -67,4 +67,12 @@
         </div>
     </div>
 
+    <p class="text-light mt-3">Multi Dropdown</p>
+    <div class="row">
+        <div class="col-md-12 text">
+            <a href="{{ route('manage_division') }}" style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-city pe-3"></i>Division</a>
+        </div>
+    </div>
+
 </div>
