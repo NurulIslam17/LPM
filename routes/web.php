@@ -14,6 +14,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\ApplicantController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -74,3 +75,8 @@ Route::post('/store_city', [CityController::class, 'store'])->name('store_city')
 Route::get('/manage_area', [AreaController::class, 'index'])->name('manage_area');
 Route::get('/create_area', [AreaController::class, 'create'])->name('create_area');
 Route::post('/store_area', [AreaController::class, 'store'])->name('store_area');
+
+// Applicant
+Route::get('/manage_applicant', [ApplicantController::class, 'index'])->name('manage_applicant');
+Route::get('/create_applicant', [ApplicantController::class, 'create'])->name('create_applicant');
+Route::post('/store_applicant', [ApplicantController::class, 'store'])->name('store_applicant');
