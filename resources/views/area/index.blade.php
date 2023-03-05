@@ -6,8 +6,8 @@
 
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3>Manage Cities</h3>
-                    <a href="{{ route('create_city') }}" class="btn btn-sm btn-success pt-2">Create</a>
+                    <h3>Manage Areas</h3>
+                    <a href="{{ route('create_area') }}" class="btn btn-sm btn-success pt-2">Create</a>
                 </div>
             </div>
 
@@ -17,14 +17,14 @@
                         <thead>
                             <tr class="" style="background: rgb(126, 116, 116)">
                                 <th scope="col">SL</th>
-                                <th scope="col">Division</th>
                                 <th scope="col">City</th>
+                                <th scope="col">Area</th>
                                 <th scope="col">Status</th>
                                 <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($cities as $city)
+                            {{-- @foreach ($cities as $city)
                                 <tr class="">
                                     <td scope="col">{{ $loop->iteration }}</td>
                                     <td scope="col">{{ $city->division->name }}</td>
@@ -43,7 +43,7 @@
                                         <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
 
                         </tbody>
                     </table>

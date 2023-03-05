@@ -11,8 +11,8 @@ class CityController extends Controller
 {
     public function index()
     {
-        $cities = City::with('getDivision')->orderby('id', 'desc')->get();
-        return $cities;
+        $cities = City::with('division:id,name')->orderby('id', 'asc')->get();
+        // return $cities;
         $cities = City::orderby('id', 'desc')->get();
         return view('city.index', compact('cities'));
     }

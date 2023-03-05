@@ -80,5 +80,11 @@
                     class="fa fa-city pe-3"></i>City</a>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 text">
+            <a href="{{ route('manage_area') }}" style="text-decoration: none" class="text-light text-center"> <i
+                    class="fa fa-city pe-3"></i>Area</a>
+        </div>
+    </div>
 
 </div>

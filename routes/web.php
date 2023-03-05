@@ -13,6 +13,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\AreaController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -68,3 +69,8 @@ Route::post('/store_divission', [DivisionController::class, 'store'])->name('sto
 Route::get('/manage_city', [CityController::class, 'index'])->name('manage_city');
 Route::get('/create_city', [CityController::class, 'create'])->name('create_city');
 Route::post('/store_city', [CityController::class, 'store'])->name('store_city');
+
+// Area
+Route::get('/manage_area', [AreaController::class, 'index'])->name('manage_area');
+Route::get('/create_area', [AreaController::class, 'create'])->name('create_area');
+Route::post('/store_area', [AreaController::class, 'store'])->name('store_area');
