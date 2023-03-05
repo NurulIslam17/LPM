@@ -3,18 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Applicant;
+use App\Models\Area;
+use App\Models\City;
+use App\Models\Division;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class ApplicantController extends Controller
 {
+
+    // Ajax call
+
+    public function getCity(Request $request)
+    {
+        // dd($request->all());
+        $data['data'] = City::where('division_id', $request->div_id)->where('status', 1)->get(['id', 'name']);
+        return response()->json($data);
+    }
+    public function getArea(Request $request)
+    {
+        $data['area'] = Area::where('city_id', $request->id)->where('status', 1)->get(['id', 'name']);
+        return response()->json($data);
+    }
+
     public function index()
     {
         return view('applicants.index');
     }
     public function create()
     {
-        return view('applicants.create');
+        $divisions = Division::where('status', 1)->get();
+        return view('applicants.create', compact('divisions'));
     }
     public function store(Request $request)
     {

@@ -76,7 +76,12 @@ Route::get('/manage_area', [AreaController::class, 'index'])->name('manage_area'
 Route::get('/create_area', [AreaController::class, 'create'])->name('create_area');
 Route::post('/store_area', [AreaController::class, 'store'])->name('store_area');
 
-// Applicant
+// Applicant routes
+
+//ajax for applicant create form
+Route::post('/get_city', [ApplicantController::class, 'getCity'])->name('get_city');
+Route::post('/get_area', [ApplicantController::class, 'getArea'])->name('get_area');
+
 Route::get('/manage_applicant', [ApplicantController::class, 'index'])->name('manage_applicant');
 Route::get('/create_applicant', [ApplicantController::class, 'create'])->name('create_applicant');
 Route::post('/store_applicant', [ApplicantController::class, 'store'])->name('store_applicant');
