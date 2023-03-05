@@ -14,4 +14,9 @@ class City extends Model
     {
         return $this->belongsTo(Division::class);
     }
+
+    public function area()
+    {
+        return $this->hasOne(Area::class, 'city_id', 'id');
+    }
 }

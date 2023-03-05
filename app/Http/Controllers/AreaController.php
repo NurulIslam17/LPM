@@ -11,7 +11,9 @@ class AreaController extends Controller
 {
     public function index()
     {
-        return view('area.index');
+        $areas = Area::with('city:id,name')->orderby('id', 'DESC')->get();
+        // return $areas;
+        return view('area.index', compact('areas'));
     }
     public function create()
     {
@@ -28,6 +30,10 @@ class AreaController extends Controller
             if ($isExist) {
                 return back()->with('err', 'Area Already Exist');
             } else {
+                $area = new Area();
+                $area->city_id = $request->city_id;
+                $area->name = $request->name;
+                $area->save();
                 return back()->with('err', 'New Record Created');
             }
         } catch (\Throwable $th) {

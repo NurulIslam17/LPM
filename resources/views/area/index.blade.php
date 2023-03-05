@@ -24,13 +24,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($cities as $city)
+                            @foreach ($areas as $area)
                                 <tr class="">
                                     <td scope="col">{{ $loop->iteration }}</td>
-                                    <td scope="col">{{ $city->division->name }}</td>
-                                    <td scope="col">{{ $city->name }}</td>
+                                    <td scope="col">{{ $area->city->name }}</td>
+                                    <td scope="col">{{ $area->name }}</td>
                                     <td scope="col">
-                                        @if ($city->status == 1)
+                                        @if ($area->status == 1)
                                             <span class="badge text-dark" style="background: rgb(14, 238, 51)">
                                                 Active</span>
                                         @else
@@ -43,7 +43,7 @@
                                         <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
 
                         </tbody>
                     </table>
