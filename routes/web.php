@@ -66,7 +66,7 @@ Route::get('/manage_division', [DivisionController::class, 'index'])->name('mana
 Route::get('/create_divission', [DivisionController::class, 'create'])->name('create_divission');
 Route::post('/store_divission', [DivisionController::class, 'store'])->name('store_divission');
 
-// city
+// City
 Route::get('/manage_city', [CityController::class, 'index'])->name('manage_city');
 Route::get('/create_city', [CityController::class, 'create'])->name('create_city');
 Route::post('/store_city', [CityController::class, 'store'])->name('store_city');
@@ -78,7 +78,7 @@ Route::post('/store_area', [AreaController::class, 'store'])->name('store_area')
 
 // Applicant routes
 
-//ajax for applicant create form
+//Ajax for applicant create form
 Route::post('/get_city', [ApplicantController::class, 'getCity'])->name('get_city');
 Route::post('/get_area', [ApplicantController::class, 'getArea'])->name('get_area');
 

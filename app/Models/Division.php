@@ -17,4 +17,9 @@ class Division extends Model
     {
         return $this->hasMany(City::class, 'division_id', 'id');
     }
+
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class, 'division', 'id');
+    }
 }

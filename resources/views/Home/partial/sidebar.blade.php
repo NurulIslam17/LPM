@@ -77,7 +77,7 @@
     <div class="row">
         <div class="col-md-12 text">
             <a href="{{ route('manage_city') }}" style="text-decoration: none" class="text-light text-center"> <i
-                    class="fa fa-city pe-3"></i>City</a>
+                    class="fa fa-tree-city pe-3"></i>City</a>
         </div>
     </div>
     <div class="row">

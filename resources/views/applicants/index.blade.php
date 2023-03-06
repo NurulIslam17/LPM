@@ -12,38 +12,44 @@
             </div>
 
             <div class="row">
-                <div class="col-md-10 mx-auto">
+                <div class="col-md-12 mx-auto">
                     <table class="table table-bordered table-striped mt-5">
                         <thead>
                             <tr class="" style="background: rgb(126, 116, 116)">
                                 <th scope="col">SL</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Applicant</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Division</th>
                                 <th scope="col">City</th>
                                 <th scope="col">Area</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Village</th>
                                 <th scope="col" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($areas as $area)
+                            @foreach ($applicants as $applicant)
                                 <tr class="">
                                     <td scope="col">{{ $loop->iteration }}</td>
-                                    <td scope="col">{{ $area->city->name }}</td>
-                                    <td scope="col">{{ $area->name }}</td>
                                     <td scope="col">
-                                        @if ($area->status == 1)
-                                            <span class="badge text-dark" style="background: rgb(14, 238, 51)">
-                                                Active</span>
-                                        @else
-                                            <span class="badge text-dark" style="background: rgb(236, 222, 21)">
-                                                Inctive</span>
-                                        @endif
+                                        <img src="{{ asset('upload/Applicants/' . $applicant->photo) }}"
+                                            style="heigh:80px;width:80px;">
                                     </td>
+                                    <td scope="col">{{ $applicant->applicant }}</td>
+                                    <td scope="col">{{ $applicant->email }}</td>
+                                    <td scope="col">{{ $applicant->phone }}</td>
+                                    <td scope="col">{{ $applicant->division }}</td>
+                                    <td scope="col">{{ $applicant->city }}</td>
+                                    <td scope="col">{{ $applicant->area }}</td>
+                                    <td scope="col">{{ $applicant->village }}</td>
+
                                     <td scope="col" class="d-flex justify-content-center">
                                         <a href="#" class="btn btn-sm btn-success rounded-0 m-1">Show</a>
                                         <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
 
                         </tbody>
                     </table>

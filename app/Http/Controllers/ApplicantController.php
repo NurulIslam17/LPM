@@ -17,7 +17,7 @@ class ApplicantController extends Controller
     public function getCity(Request $request)
     {
         // dd($request->all());
-        $data['data'] = City::where('division_id', $request->div_id)->where('status', 1)->get(['id', 'name']);
+        $data = City::where('division_id', $request->div_id)->where('status', 1)->get(['id', 'name']);
         return response()->json($data);
     }
     public function getArea(Request $request)
@@ -28,7 +28,10 @@ class ApplicantController extends Controller
 
     public function index()
     {
-        return view('applicants.index');
+        // $applicants = Applicant::with('division')->orderby('id', 'DESC')->get();
+        // return $applicants;
+        $applicants = Applicant::orderby('id', 'DESC')->get();
+        return view('applicants.index', compact('applicants'));
     }
     public function create()
     {
@@ -54,8 +57,8 @@ class ApplicantController extends Controller
 
             $file = $request->file('photo');
             $file_name = 'applicant_' . time() . '.' . $file->getClientOriginalExtension();
-            $file->move('/Upload/Applicants/', $file_name);
-            $applicant->photo = $file;
+            $file->move('upload/Applicants/', $file_name);
+            $applicant->photo = $file_name;
             $applicant->save();
             return back()->with('msg', 'New Member Added');
         } catch (\Throwable $th) {

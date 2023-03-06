@@ -25,7 +25,7 @@
                                     <div class="form-group">
                                         <label for="applicant">Applicant</label>
                                         <input type="text" class="form-control" name="applicant" id="applicant"
-                                            placeholder="Enter email">
+                                            placeholder="Enter Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
@@ -121,7 +121,7 @@
                 success: function(response) {
                     // console.log("Ok");
                     $("#city").html(`<option selected disabled>------ Select city----</option>`);
-                    $.each(response.data, function(key, value) {
+                    $.each(response, function(key, value) {
                         $("#city").append(`<option value="${value.id}">${value.name}</option>`)
                     })
                 }
