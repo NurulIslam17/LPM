@@ -15,41 +15,32 @@
                 <div class="col-md-12 mx-auto">
                     <table class="table table-bordered table-striped mt-5">
                         <thead>
-                            <tr class="" style="background: rgb(126, 116, 116)">
+                            <tr class="text-center text-light" style="background: rgb(126, 116, 116)">
                                 <th scope="col">SL</th>
                                 <th scope="col">Image</th>
-                                <th scope="col">Applicant</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Division</th>
-                                <th scope="col">City</th>
-                                <th scope="col">Area</th>
-                                <th scope="col">Village</th>
-                                <th scope="col" class="text-center">Action</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($applicants as $applicant)
-                                <tr class="">
+                            @foreach ($animals as $animal)
+                                <tr class="text-center">
                                     <td scope="col">{{ $loop->iteration }}</td>
                                     <td scope="col">
-                                        <img src="{{ asset('upload/Applicants/' . $applicant->photo) }}"
-                                            style="height:50px;width:50px;">
+                                        <img class="rounded-circle" src="{{ asset('upload/animal/' . $animal->image) }}"
+                                            style="height:60px;width:60px;">
                                     </td>
-                                    <td scope="col">{{ $applicant->applicant }}</td>
-                                    <td scope="col">{{ $applicant->email }}</td>
-                                    <td scope="col">{{ $applicant->phone }}</td>
-                                    <td scope="col">{{ $applicant->division }}</td>
-                                    <td scope="col">{{ $applicant->city }}</td>
-                                    <td scope="col">{{ $applicant->area }}</td>
-                                    <td scope="col">{{ $applicant->village }}</td>
-
-                                    <td scope="col" class="d-flex justify-content-center">
+                                    <td scope="col">{{ $animal->name }}</td>
+                                    <td scope="col">{{ $animal->color }}</td>
+                                    <td scope="col">{{ $animal->price }}</td>
+                                    <td scope="col">
                                         <a href="#" class="btn btn-sm btn-success rounded-0 m-1">Show</a>
                                         <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
 
                         </tbody>
                     </table>

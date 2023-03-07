@@ -14,7 +14,8 @@
             <div class="row mt-3">
                 <div class="col-md-6 mx-auto">
                     <div class="card card-body shadow">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <p>{{ Session::get('msg') }}</p>
+                        <form action="{{ route('animals.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="">
                                 <div class="form-group">
@@ -35,7 +36,7 @@
 
                                 <div class="form-group">
                                     <label for="image">Image</label>
-                                    <input type="file" class="form-control" name="image">
+                                    <input type="file" class="form-control" required name="image">
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="image"></label>

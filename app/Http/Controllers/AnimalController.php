@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Animal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AnimalController extends Controller
 {
@@ -13,7 +15,8 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        return view('animal.index');
+        $animals = Animal::orderby('id', 'DESC')->get();
+        return view('animal.index', compact('animals'));
     }
 
     /**
@@ -34,7 +37,25 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $file =  $request->file('image');
+        // dd($file);
+        $file_name = 'Animal_' . time() . '.' . $file->getClientOriginalExtension();
+        // dd($file_name);
+
+        try {
+            Animal::create([
+                'name' => $request->name,
+                'color' => $request->color,
+                'price' => $request->price,
+                'image' => $file_name,
+            ]);
+            $file->move('upload/animal/', $file_name);
+            return redirect()->route('animals.index')->with('msg', 'Data Inserted');
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            return back()->with('Msg', 'Something Went Wrong');
+        }
     }
 
     /**
