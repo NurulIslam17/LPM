@@ -15,6 +15,8 @@ use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\AnimalController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -85,3 +87,6 @@ Route::post('/get_area', [ApplicantController::class, 'getArea'])->name('get_are
 Route::get('/manage_applicant', [ApplicantController::class, 'index'])->name('manage_applicant');
 Route::get('/create_applicant', [ApplicantController::class, 'create'])->name('create_applicant');
 Route::post('/store_applicant', [ApplicantController::class, 'store'])->name('store_applicant');
+
+// animal
+Route::resource('animals', AnimalController::class);

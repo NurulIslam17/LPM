@@ -6,8 +6,8 @@
 
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3>Manage Applicant</h3>
-                    <a href="{{ route('create_applicant') }}" class="btn btn-sm btn-success pt-2">Create</a>
+                    <h3>Manage Animals</h3>
+                    <a href="{{ route('animals.create') }}" class="btn btn-sm btn-success pt-2">Create</a>
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($applicants as $applicant)
+                            {{-- @foreach ($applicants as $applicant)
                                 <tr class="">
                                     <td scope="col">{{ $loop->iteration }}</td>
                                     <td scope="col">
@@ -49,7 +49,7 @@
                                         <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
 
                         </tbody>
                     </table>
