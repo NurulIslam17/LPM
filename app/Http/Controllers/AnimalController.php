@@ -87,7 +87,29 @@ class AnimalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
+        // return $request;
+        $animal = Animal::findOrFail($id);
+        try {
+
+            $update = [
+                'name' => $request->name,
+                'color' => $request->color,
+                'price' => $request->price,
+            ];
+            if ($request->hasfile('image')) {
+                $unlinkImg = 'upload/animal/' . $animal->image;
+                $file =  $request->file('image');
+                $file_name = 'Animal_' . time() . '.' . $file->getClientOriginalExtension();
+                $update['image'] = $file_name;
+                $file->move('upload/animal/', $file_name);
+            }
+            $animal->update($update);
+            @unlink($unlinkImg);
+            return redirect()->route('animals.index');
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            return back()->with('msg', 'Something Went Wrong');
+        }
     }
 
     /**
