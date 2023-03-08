@@ -37,14 +37,10 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $file =  $request->file('image');
-        // dd($file);
-        $file_name = 'Animal_' . time() . '.' . $file->getClientOriginalExtension();
-        // dd($file_name);
-
         try {
-            Animal::create([
+            $file =  $request->file('image');
+            $file_name = 'Animal_' . time() . '.' . $file->getClientOriginalExtension();
+            Animal::Create([
                 'name' => $request->name,
                 'color' => $request->color,
                 'price' => $request->price,
@@ -77,7 +73,9 @@ class AnimalController extends Controller
      */
     public function edit($id)
     {
-        //
+        // return $id;
+        $animal = Animal::findOrFail($id);
+        return view('animal.edit', compact('animal'));
     }
 
     /**
@@ -89,7 +87,7 @@ class AnimalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request;
     }
 
     /**
@@ -100,6 +98,12 @@ class AnimalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $id;
+        try {
+            return back()->with('msg', 'Animal deletd Successfully');
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            return back()->with('msg', 'Something went wrong');
+        }
     }
 }

@@ -36,8 +36,28 @@
                                     <td scope="col">{{ $animal->color }}</td>
                                     <td scope="col">{{ $animal->price }}</td>
                                     <td scope="col">
-                                        <a href="#" class="btn btn-sm btn-success rounded-0 m-1">Show</a>
-                                        <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
+                                        <a href="{{ route('animals.edit', $animal->id) }}"
+                                            class="btn btn-sm btn-success rounded-0 m-1">EDIT</a>
+                                        <a onclick="event.preventDefault();document.getElementById('delete').submit();"
+                                            class="btn btn-sm btn-danger rounded-0 m-1">DELETE</a>
+
+                                        <form id="delete" method="POST"
+                                            action="{{ route('animals.destroy', $animal->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+
+                                        {{-- <button type="button" onclick="deleteData({{ $animal->id }})"
+                                            class="btn btn-danger btn-sm" title="Delete">
+                                            <i class="fa fa-trash"></i>
+                                            <span>Delete</span>
+                                        </button> --}}
+
+                                        <form id="delete-form-{{ $animal->id }}" method="POST"
+                                            action="{{ route('animals.destroy', $animal->id) }}" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
