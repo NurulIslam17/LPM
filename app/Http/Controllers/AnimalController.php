@@ -87,7 +87,6 @@ class AnimalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // return $request;
         $animal = Animal::findOrFail($id);
         try {
 
@@ -120,8 +119,17 @@ class AnimalController extends Controller
      */
     public function destroy($id)
     {
-        return $id;
+        // return $id;
+
         try {
+            $animal = Animal::findOrFail($id);
+            // dd($animal);
+
+            if ($animal->image) {
+                $deleteImg = 'upload/animal/' . $animal->image;
+            }
+            $animal->delete();
+            @unlink($deleteImg);
             return back()->with('msg', 'Animal deletd Successfully');
         } catch (\Throwable $th) {
             Log::error($th->getMessage());
