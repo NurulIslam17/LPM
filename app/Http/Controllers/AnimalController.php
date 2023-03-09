@@ -119,8 +119,6 @@ class AnimalController extends Controller
      */
     public function destroy($id)
     {
-        // return $id;
-
         try {
             $animal = Animal::findOrFail($id);
             // dd($animal);
@@ -136,7 +134,6 @@ class AnimalController extends Controller
             return back()->with('msg', 'Something went wrong');
         }
     }
-
     public function changeStatus(Request $request)
     {
         $data = Animal::findOrFail($request->id);

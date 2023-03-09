@@ -38,11 +38,16 @@
                                     <td scope="col">{{ $animal->color }}</td>
                                     <td scope="col">{{ $animal->price }}</td>
                                     <td scope="col" id="status_{{ $animal->id }}">
-                                        {{-- <span class="badge bg-success">Active</span> --}}
+                                        @if ($animal->status == 1)
+                                            <span class="badge bg-success">Active</span>
+                                        @else
+                                            <span class="badge bg-warning">Inctive</span>
+                                        @endif
+
                                     </td>
                                     <td scope="col">
                                         <a href="{{ route('animals.edit', $animal->id) }}"
-                                            class="btn btn-sm btn-success rounded-0 m-1">EDIT</a>
+                                            class="btn btn-sm btn-info rounded-0 m-1">EDIT</a>
                                         <a onclick="changeStatus({{ $animal->id }})"
                                             class="btn btn-sm btn-primary rounded-0 m-1">Status</a>
 
@@ -67,8 +72,6 @@
 @push('js')
     <script>
         function changeStatus(id) {
-            // let id = id;
-            alert(id);
             $.ajax({
                 url: "{{ route('status_id') }}",
                 type: "POST",
@@ -76,8 +79,7 @@
                     id: id,
                 },
                 success: function(response) {
-                    // console.log(response);
-                    $('#status').html(`<span class=""></span>`)
+                    $(`#status_${id}`).html(`<span></span>`)
                     if (response === 1) {
                         $(`#status_${id}`).append(`<span class="badge bg-success">Active</span>`);
                     } else {
