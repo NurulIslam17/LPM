@@ -22,6 +22,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Color</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -37,8 +38,17 @@
                                     <td scope="col">{{ $animal->color }}</td>
                                     <td scope="col">{{ $animal->price }}</td>
                                     <td scope="col">
+                                        @if ($animal->status == 1)
+                                            <span class="badge bg-success">Active</span>
+                                        @else
+                                            <span class="badge bg-warning">Active</span>
+                                        @endif
+                                    </td>
+                                    <td scope="col">
                                         <a href="{{ route('animals.edit', $animal->id) }}"
                                             class="btn btn-sm btn-success rounded-0 m-1">EDIT</a>
+                                        <a onclick="changeStatus({{ $animal->id }})"
+                                            class="btn btn-sm btn-primary rounded-0 m-1">Status</a>
 
                                         <form id="delete" method="POST"
                                             action="{{ route('animals.destroy', $animal->id) }}">
@@ -57,3 +67,23 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script>
+        function changeStatus(id) {
+            // let id = id;
+            // alert(id);
+
+            $.ajax({
+                url: "{{ route('status_id') }}",
+                type: "POST",
+                data: {
+                    id: id,
+                },
+                success: function(response) {
+                    console.log(response);
+                }
+            });
+        }
+    </script>
+@endpush

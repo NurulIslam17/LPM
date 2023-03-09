@@ -136,4 +136,16 @@ class AnimalController extends Controller
             return back()->with('msg', 'Something went wrong');
         }
     }
+
+    public function changeStatus(Request $request)
+    {
+        $data = Animal::findOrFail($request->id);
+        if ($data->status == 1) {
+            $data->status == 0;
+        } else {
+            $data->status == 0;
+        }
+        $data->save();
+        return response()->json($data);
+    }
 }

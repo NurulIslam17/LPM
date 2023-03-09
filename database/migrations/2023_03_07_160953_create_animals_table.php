@@ -19,6 +19,7 @@ class CreateAnimalsTable extends Migration
             $table->string('color');
             $table->string('price');
             $table->text('image');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

@@ -90,3 +90,4 @@ Route::post('/store_applicant', [ApplicantController::class, 'store'])->name('st
 
 // animal
 Route::resource('animals', AnimalController::class);
+Route::post('/change_status', [AnimalController::class, 'changeStatus'])->name('status_id');
