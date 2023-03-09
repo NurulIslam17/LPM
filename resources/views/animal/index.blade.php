@@ -37,12 +37,8 @@
                                     <td scope="col">{{ $animal->name }}</td>
                                     <td scope="col">{{ $animal->color }}</td>
                                     <td scope="col">{{ $animal->price }}</td>
-                                    <td scope="col">
-                                        @if ($animal->status == 1)
-                                            <span class="badge bg-success">Active</span>
-                                        @else
-                                            <span class="badge bg-warning">Active</span>
-                                        @endif
+                                    <td scope="col" id="status_{{ $animal->id }}">
+                                        {{-- <span class="badge bg-success">Active</span> --}}
                                     </td>
                                     <td scope="col">
                                         <a href="{{ route('animals.edit', $animal->id) }}"
@@ -72,8 +68,7 @@
     <script>
         function changeStatus(id) {
             // let id = id;
-            // alert(id);
-
+            alert(id);
             $.ajax({
                 url: "{{ route('status_id') }}",
                 type: "POST",
@@ -81,7 +76,13 @@
                     id: id,
                 },
                 success: function(response) {
-                    console.log(response);
+                    // console.log(response);
+                    $('#status').html(`<span class=""></span>`)
+                    if (response === 1) {
+                        $(`#status_${id}`).append(`<span class="badge bg-success">Active</span>`);
+                    } else {
+                        $(`#status_${id}`).append(`<span class="badge bg-warning">Inactive</span>`);
+                    }
                 }
             });
         }

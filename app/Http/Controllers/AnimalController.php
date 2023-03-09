@@ -141,11 +141,14 @@ class AnimalController extends Controller
     {
         $data = Animal::findOrFail($request->id);
         if ($data->status == 1) {
-            $data->status == 0;
+            $data->status = 0;
+            $data->save();
+            $status = 0;
         } else {
-            $data->status == 0;
+            $data->status = 1;
+            $data->save();
+            $status = 1;
         }
-        $data->save();
-        return response()->json($data);
+        return response()->json($status);
     }
 }
