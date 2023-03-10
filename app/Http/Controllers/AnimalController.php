@@ -40,11 +40,12 @@ class AnimalController extends Controller
         try {
             $file =  $request->file('image');
             $file_name = 'Animal_' . time() . '.' . $file->getClientOriginalExtension();
-            Animal::Create([
+            Animal::create([
                 'name' => $request->name,
                 'color' => $request->color,
                 'price' => $request->price,
                 'image' => $file_name,
+                'status' => $request->filled('status'),
             ]);
             $file->move('upload/animal/', $file_name);
             return redirect()->route('animals.index')->with('msg', 'Data Inserted');
