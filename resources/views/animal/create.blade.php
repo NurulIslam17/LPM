@@ -38,11 +38,11 @@
                                     <label for="image">Image</label>
                                     <input type="file" class="form-control" required name="image">
                                 </div>
-                                <div class="form-check form-switch mt-2">
+                                {{-- <div class="form-check form-switch mt-2">
                                     <input class="form-check-input" type="checkbox" name="status" role="switch"
                                         id="status" checked>
                                     <label class="form-check-label" for="status">Status</label>
-                                </div>
+                                </div> --}}
                                 <div class="form-group mt-3">
                                     <label for="image"></label>
                                     <input type="submit" class="btn btn-sm btn-success" value="Create">

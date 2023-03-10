@@ -45,7 +45,7 @@ class AnimalController extends Controller
                 'color' => $request->color,
                 'price' => $request->price,
                 'image' => $file_name,
-                'status' => $request->filled('status'),
+                // 'status' => $request->filled('status'),
             ]);
             $file->move('upload/animal/', $file_name);
             return redirect()->route('animals.index')->with('msg', 'Data Inserted');
