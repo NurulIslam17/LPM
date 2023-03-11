@@ -17,6 +17,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\TutorialsController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -91,3 +92,6 @@ Route::post('/store_applicant', [ApplicantController::class, 'store'])->name('st
 // animal
 Route::resource('animals', AnimalController::class);
 Route::post('/change_status', [AnimalController::class, 'changeStatus'])->name('status_id');
+
+// tutorials
+Route::resource('tutorials', TutorialsController::class);
