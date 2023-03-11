@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tutorials;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TutorialsController extends Controller
 {
@@ -14,7 +15,8 @@ class TutorialsController extends Controller
      */
     public function index()
     {
-        //
+        $tutorials = Tutorials::orderby('id', 'DESC')->get();
+        return view('tutorial.index', compact('tutorials'));
     }
 
     /**
@@ -24,7 +26,7 @@ class TutorialsController extends Controller
      */
     public function create()
     {
-        //
+        return view('tutorial.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class TutorialsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            Tutorials::create([
+                'title' => $request->title,
+                'url' => $request->url,
+            ]);
+            return redirect()->route('tutorials.index')->with('msg', 'New Record Inserted');
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            return back()->with('msg', 'Opp ! Failed');
+        }
     }
 
     /**
