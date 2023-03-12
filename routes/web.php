@@ -93,5 +93,7 @@ Route::post('/store_applicant', [ApplicantController::class, 'store'])->name('st
 Route::resource('animals', AnimalController::class);
 Route::post('/change_status', [AnimalController::class, 'changeStatus'])->name('status_id');
 
+
 // tutorials
 Route::resource('tutorials', TutorialsController::class);
+Route::get('/tutorials-delete/{id}', [TutorialsController::class, 'tutorialsDelete'])->name('tutorials.delete');

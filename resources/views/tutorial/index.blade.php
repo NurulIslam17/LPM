@@ -40,14 +40,32 @@
                                         @endif
                                     </td>
                                     <td scope="col" class="d-flex justify-content-center">
-                                        <a href="#" class="btn btn-sm btn-info rounded-0 m-1">Show</a>
-                                        <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
+                                        <a href="{{ route('tutorials.show', $tutorial->id) }}" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"
+                                            id="show_{{ $tutorial->id }}"class="btn btn-sm btn-info rounded-0 m-1 showModal">Show</a>
+                                        <a href="{{ route('tutorials.delete', $tutorial->id) }}"
+                                            class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
 
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tutorials</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
                 </div>
             </div>
         </div>

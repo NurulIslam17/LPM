@@ -93,4 +93,9 @@ class TutorialsController extends Controller
     {
         //
     }
+    public function tutorialsDelete($id)
+    {
+        Tutorials::findOrFail($id)->delete();
+        return back()->with('msg', 'Deleted');
+    }
 }
