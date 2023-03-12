@@ -7,6 +7,7 @@
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
                     <h5>Create Product</h5>
+                    <p>{{ Session::get('msg') }}</p>
                     <a href="{{ route('productsz.index') }}" class="btn btn-sm btn-success pt-2"><i class="fa fa-list"></i>
                         List</a>
                 </div>

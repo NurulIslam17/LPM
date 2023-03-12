@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Productimg;
+use App\Models\ProductSize;
 use App\Models\Productsz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProductszController extends Controller
 {
@@ -36,11 +39,30 @@ class ProductszController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $sizes = $request->size;
         $prices = $request->price;
 
-        DB::begigTransaction();
+        try {
+            DB::beginTransaction();
+            $ps = DB::table('productszs')->insertGetId([
+                'title' => $request->title,
+                'color' => $request->color,
+                'brand' => $request->brand,
+            ]);
+            foreach ($sizes as $key => $value) {
+                ProductSize::create([
+                    "productszs_id" => $ps,
+                    "size" => $sizes[$key],
+                    "price" => $prices[$key],
+                ]);
+            }
+            DB::commit();
+            return back()->with('msg', 'Inserted New Record');
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            DB::rollBack();
+            return back();
+        }
     }
 
     /**
