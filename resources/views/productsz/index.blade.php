@@ -6,8 +6,8 @@
 
             <div class="row shadow">
                 <div class="col-md-12 d-flex p-4 justify-content-between">
-                    <h3>Manage Divission</h3>
-                    <a href="{{ route('create_divission') }}" class="btn btn-sm btn-success pt-2">Create</a>
+                    <h5>Manage Product SZ</h5>
+                    <a href="{{ route('productsz.create') }}" class="btn btn-sm btn-success pt-2">Create</a>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($divissions as $divission)
+                            {{-- @foreach ($divissions as $divission)
                                 <tr class="">
                                     <td scope="col">{{ $loop->iteration }}</td>
                                     <td scope="col">{{ $divission->name }}</td>
@@ -41,7 +41,7 @@
                                         <a href="#" class="btn btn-sm btn-danger rounded-0 m-1">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
 
                         </tbody>
                     </table>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Productsz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductszController extends Controller
 {
@@ -14,7 +15,7 @@ class ProductszController extends Controller
      */
     public function index()
     {
-        //
+        return view('productsz.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class ProductszController extends Controller
      */
     public function create()
     {
-        //
+        return view('productsz.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class ProductszController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+        $sizes = $request->size;
+        $prices = $request->price;
+
+        DB::begigTransaction();
     }
 
     /**

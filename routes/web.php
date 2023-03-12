@@ -18,6 +18,7 @@ use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\TutorialsController;
+use App\Http\Controllers\ProductszController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -97,3 +98,6 @@ Route::post('/change_status', [AnimalController::class, 'changeStatus'])->name('
 // tutorials
 Route::resource('tutorials', TutorialsController::class);
 Route::get('/tutorials-delete/{id}', [TutorialsController::class, 'tutorialsDelete'])->name('tutorials.delete');
+
+// product sz
+Route::resource('productsz', ProductszController::class);

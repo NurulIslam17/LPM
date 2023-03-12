@@ -107,6 +107,13 @@
                     <i class="fa fa-city pe-3"></i>Tutorials Manage</a>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 text">
+                <a href="{{ route('productsz.index') }}" style="text-decoration: none"
+                    class="text-light text-center">
+                    <i class="fa fa-city pe-3"></i>Product SZ</a>
+            </div>
+        </div>
     </div>
 
 </div>

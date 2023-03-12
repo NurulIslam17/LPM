@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateProductSizesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('product_sizes', function (Blueprint $table) {
             $table->id();
-            $table->integer('company_id');
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email');
-            $table->tinyInteger('status')->default(1);
+            $table->foreignId('productszs_id')->constrained('productszs')->onDelete('cascade');
+            $table->string('size');
+            $table->string('price');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('product_sizes');
     }
 }
