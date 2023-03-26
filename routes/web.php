@@ -19,6 +19,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\TutorialsController;
 use App\Http\Controllers\ProductszController;
+use App\Http\Controllers\AjaxCrudController;
 
 Route::get('/', [HomeController::class, 'dashboard'])->name('/');
 Route::get('/student-index', [StudentController::class, 'index'])->name('student.index');
@@ -101,3 +102,8 @@ Route::get('/tutorials-delete/{id}', [TutorialsController::class, 'tutorialsDele
 
 // product sz
 Route::resource('productsz', ProductszController::class);
+
+//ajax crud
+Route::resource('ajax-crud', AjaxCrudController::class);
+Route::post('/ajax/crud/store/', [AjaxCrudController::class, 'save'])->name('save.data');
+Route::post('/ajax-delete', [AjaxCrudController::class, 'delete']);

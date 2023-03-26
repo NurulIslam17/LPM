@@ -47,6 +47,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+
+        $this->map();
     }
 
     /**
@@ -59,5 +61,19 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
+    }
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function map()
+    {
+        $this->mapAdvanceCrudRoutes();
+    }
+
+    protected function mapAdvanceCrudRoutes()
+    {
+        Route::prefix('advance-crud')->name('advanceCrud.')->group(base_path('routes/advanceCrud.php'));
     }
 }
